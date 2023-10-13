@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  username: ojwang
+  password:  
+
+development:
+  <<: *default
+  database: RoR-template_development
+
+test:
+  <<: *default
+  database: RoR-template_test
+
+production:
+  <<: *default
+  database: RoR-template_production
