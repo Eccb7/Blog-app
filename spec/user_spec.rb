@@ -20,4 +20,14 @@ RSpec.describe User, type: :model do
     user = User.new(name: 'Alice Johnson', posts_counter: 0)
     expect(user).to be_valid
   end
+
+  it 'returns the most recent posts' do
+    user = User.create(name: 'John Doe', posts_counter: 5)
+    older_post = user.posts.create(title: 'Old Post', comments_counter: 2, likes_counter: 3, created_at: 3.days.ago)
+    newer_post = user.posts.create(title: 'New Post', comments_counter: 2, likes_counter: 3, created_at: 1.day.ago)
+
+    recent_posts = user.recent_posts
+
+    expect(recent_posts).to eq([newer_post, older_post])
+  end
 end
