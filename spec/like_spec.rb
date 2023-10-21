@@ -5,7 +5,7 @@ RSpec.describe Like, type: :model do
     user = User.create(name: 'Test User')
     post = Post.create(title: 'Test Post')
 
-    like = Like.new(user: user, post: post, text: 'This is a test like.') # Provide a value for the 'text' attribute
+    like = Like.new(user: user, post: post, text: 'This is a test like.')
 
     expect(like).to be_valid
   end
