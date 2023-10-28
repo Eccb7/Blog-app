@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    # return all users
   end
 
   def show
-    @user = User.find(params[:id])
+    # display a specific user
   end
 end
